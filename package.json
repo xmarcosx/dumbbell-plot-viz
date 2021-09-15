@@ -2,13 +2,10 @@
   "dsccViz": {
     "gcsDevBucket": "gs://ds-community-visualizations/dumbbell-plot-dev",
     "gcsProdBucket": "gs://ds-community-visualizations/dumbbell-plot-prod",
-    "components": [
-      {
-        "jsFile": "index.js",
-        "jsonFile": "index.json",
-        "cssFile": "index.css"
-      }
-    ]
+    "jsFile": "index.js",
+    "jsonFile": "index.json",
+    "cssFile": "index.css",
+    "print": "localMessage.js"
   },
   "scripts": {
     "build:dev": "dscc-scripts viz build -d dev",

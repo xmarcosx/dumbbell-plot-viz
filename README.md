@@ -1,16 +1,9 @@
+# Dumbbell Plot Data Studio Community Visualization
 
 
 ```bash
-gcloud auth activate-service-account --key-file service.json
-npx @google/dscc-gen viz;
+gcloud auth activate-service-account --key-file service.json;
 ```
-
-```bash
-cd dumbbell-plot-viz;
-npm run start;
-```
-
-# Data Studio Community Visualization Local Development Template
 
 Data Studio [community visualizations][community viz] allow you to write custom
 JavaScript visualizations for [Google Data Studio][datastudio].
