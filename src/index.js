@@ -1,3 +1,4 @@
+const d3 = require('d3');
 const dscc = require('@google/dscc');
 const viz = require('@google/dscc-scripts/viz/initialViz.js');
 const local = require('./localMessage.js');

@@ -1,9 +1,9 @@
 {
-  "name": "My Visualizations",
-  "organization": "MyOrg",
-  "description": "My first visualization package.",
+  "name": "Dumbbell Plot Visualization",
+  "organization": "Marcos Alcozer",
+  "description": "Dumbbell plot for Data Studio",
   "logoUrl": "https://logo",
-  "organizationUrl": "https://url",
+  "organizationUrl": "https://alcozer.dev",
   "supportUrl": "https://url",
   "privacyPolicyUrl": "https://url",
   "termsOfServiceUrl": "https://url",
@@ -11,13 +11,13 @@
   "devMode": "DEVMODE_BOOL",
   "components": [
     {
-      "name": "myViz",
-      "description": "My first Community Visualization",
+      "name": "dumbbellPlot",
+      "description": "Dumbbell plot for Data Studio",
       "iconUrl": "https://url",
       "resource": {
-        "js": "YOUR_GCS_BUCKET/index.js",
-        "config": "YOUR_GCS_BUCKET/index.json",
-        "css": "YOUR_GCS_BUCKET/index.css"
+        "js": "ds-community-visualizations/dumbbell-plot-prod/index.js",
+        "config": "ds-community-visualizations/dumbbell-plot-prod/index.json",
+        "css": "ds-community-visualizations/dumbbell-plot-prod/index.css"
       }
     }
   ]
