@@ -1,3 +1,5 @@
+.env
+service.json
 
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,node,linux
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,node,linux

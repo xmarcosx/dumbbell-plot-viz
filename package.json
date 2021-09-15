@@ -1,22 +1,26 @@
 {
-  "name": "dumbbell-plot-viz",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "dsccViz": {
+    "gcsDevBucket": "gs://ds-community-visualizations/dumbbell-plot-dev",
+    "gcsProdBucket": "gs://ds-community-visualizations/dumbbell-plot-prod",
+    "components": [
+      {
+        "jsFile": "index.js",
+        "jsonFile": "index.json",
+        "cssFile": "index.css"
+      }
+    ]
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:dev": "dscc-scripts viz build -d dev",
+    "build:prod": "dscc-scripts viz build -d prod",
+    "push:dev": "dscc-scripts viz push -d dev",
+    "push:prod": "dscc-scripts viz push -d prod",
+    "update_message": "dscc-scripts viz update_message -f object",
+    "start": "dscc-scripts viz start"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/xmarcosx/dumbbell-plot-viz.git"
-  },
-  "author": "Marcos Alcozer",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/xmarcosx/dumbbell-plot-viz/issues"
-  },
-  "homepage": "https://github.com/xmarcosx/dumbbell-plot-viz#readme",
-  "dependencies": {
-    "@google/dscc": "^0.3.22"
+  "devDependencies": {
+    "@google/dscc": "^0.3.17",
+    "@google/dscc-scripts": "^1.0.17",
+    "copy-webpack-plugin": "^4.6.0"
   }
 }
