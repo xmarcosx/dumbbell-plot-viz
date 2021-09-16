@@ -3,6 +3,7 @@
 
 ```bash
 gcloud auth activate-service-account --key-file service.json;
+npm run start;
 ```
 
 Data Studio [community visualizations][community viz] allow you to write custom

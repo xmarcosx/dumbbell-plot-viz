@@ -8,32 +8,24 @@ export const message = {
   tables: {
     DEFAULT: [
       {
-        dimID: ['25-54'],
-        metricID: [128863172],
+        "dimension": [ "Mariana" ],
+        "metric": [ 200, 250 ]
       },
       {
-        dimID: ['0-14'],
-        metricID: [61175933],
+        "dimension": [ "Arelys" ],
+        "metric": [ 100, 125 ]
       },
       {
-        dimID: ['65+'],
-        metricID: [51055052],
-      },
-      {
-        dimID: ['15-24'],
-        metricID: [43351778],
-      },
-      {
-        dimID: ['55-64'],
-        metricID: [42179856],
-      },
+        "dimension": [ "Marcos" ],
+        "metric": [ 175, 214 ]
+      }
     ],
   },
   fields: {
     dimID: [
       {
         id: 'qt_nzqx6a0xvb',
-        name: 'Age Group',
+        name: 'Source',
         type: 'TEXT',
         concept: 'DIMENSION',
       },
@@ -41,7 +33,13 @@ export const message = {
     metricID: [
       {
         id: 'qt_8isx6a0xvb',
-        name: 'Population',
+        name: 'SomeNumber',
+        type: 'NUMBER',
+        concept: 'METRIC',
+      },
+      {
+        id: 'qt_8i126a0xvb',
+        name: 'AnotherNumber',
         type: 'NUMBER',
         concept: 'METRIC',
       },
