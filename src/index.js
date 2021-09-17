@@ -5,7 +5,7 @@ import embed from 'vega-embed';
 
 // change this to 'true' for local development
 // change this to 'false' before deploying
-export const LOCAL = true;
+export const LOCAL = false;
 
 const drawViz = (message) => {
 

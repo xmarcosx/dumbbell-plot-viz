@@ -11,7 +11,7 @@ const component = components[componentIndexToBuild];
 console.log(`Building ${component.tsFile || component.jsFile}...`);
 
 const cssFilePath = path.resolve(__dirname, 'src', component.cssFile || '');
-const jsFilePath = path.resolve(__dirname, 'src', component.jsFile || '');
+const tsFilePath = path.resolve(__dirname, 'src', component.tsFile || '');
 
 const plugins = [
   // Add DSCC_IS_LOCAL definition
@@ -37,7 +37,7 @@ fs.writeFileSync(path.resolve(__dirname, 'dist', 'vizframe.html'), iframeHTML);
 module.exports = [
   {
     mode: 'development',
-    entry: jsFilePath,
+    entry: tsFilePath,
     devServer: {
       contentBase: './dist',
     },
@@ -46,5 +46,17 @@ module.exports = [
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: plugins,
+    module: {
+      rules: [
+        {
+          test: /\.tsx?$/,
+          use: 'ts-loader',
+          exclude: /node_modules/,
+        },
+      ],
+    },
+    resolve: {
+      extensions: ['.ts', '.tsx', '.js'],
+    },
   },
 ];
