@@ -39,7 +39,7 @@ const drawViz = (message) => {
                 "field": "rit_score",
                 "type": "quantitative",
                 "title": "RIT Score",
-                "scale": { "domain": [minimum, maxiumum] }
+                "scale": { "domain": [minimum - 25, maxiumum + 25] }
             },
             "y": {
                 "field": "student",
