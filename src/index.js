@@ -15,21 +15,31 @@ const drawViz = (message) => {
     const chartHeight = height - margin.top - margin.bottom;
     const chartWidth = width - margin.left - margin.right;
 
+    var messageData = message.tables.DEFAULT;
+    var data = new Array();
+    var minimum = 10000;
+    var maxiumum = 0;
+
+    for (let i = 0; i < messageData.length; i++) {
+        var ritScore = messageData[i]['metric'][0];
+        if (ritScore < minimum) { minimum = ritScore; }
+        if (ritScore > maxiumum) { maxiumum = ritScore; }
+
+        data.push({ "student": messageData[i]['dimension'][0], "rit_score": ritScore, "term": messageData[i]['dimension'][1] });
+    }
+
     var yourVlSpec = {
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
         "autosize": "fit",
-        "description": "A ranged dot plot that uses 'layer' to convey changing life expectancy for the five most populous countries (between 1955 and 2000).",
-        "data": { "values": [
-            { "student": "Mariana", "rit_score": 200, "term": "Fall" }, { "student": "Mariana", "rit_score": 214, "term": "Spring" },
-            { "student": "Arelys", "rit_score": 175, "term": "Fall" }, { "student": "Arelys", "rit_score": 190, "term": "Spring" }
-        ] },
+        "description": "",
+        "data": { "values": data },
         "transform": [],
         "encoding": {
             "x": {
                 "field": "rit_score",
                 "type": "quantitative",
                 "title": "RIT Score",
-                "scale": { "domain": [150, 250] }
+                "scale": { "domain": [minimum, maxiumum] }
             },
             "y": {
                 "field": "student",
@@ -51,7 +61,8 @@ const drawViz = (message) => {
             {
                 "mark": {
                     "type": "point",
-                    "filled": true
+                    "filled": true,
+                    "tooltip": true, //{"content": "data"}
                 },
                 "encoding": {
                     "color": {
@@ -63,8 +74,21 @@ const drawViz = (message) => {
                         },
                         "title": "RIT Score"
                     },
-                    "size": { "value": 100 },
-                    "opacity": { "value": 1 }
+                    "size": { "value": 500 },
+                    "opacity": { "value": 1 },
+                }
+            },
+            {
+                "mark": {
+                    "type": "text",
+                    // "fontWeight": "bold",
+                    "fontSize": 11
+                },
+                "encoding": {
+                    "text": { "field": "rit_score" },
+                    "color": {
+                        "value": "white"
+                    }
                 }
             }
         ]
@@ -79,33 +103,6 @@ const drawViz = (message) => {
     };
 
     embed('body', yourVlSpec, opts);
-
-    // const bars = chartSvg
-    //   .append("g")
-    //   .attr("class", "bars")
-    //   .selectAll("rect.bars")
-    //   .data(message.tables.DEFAULT)
-    //   .enter()
-    //   .append("rect")
-    //   .attr("x", d => xScale(d.dimension[0]))
-    //   .attr("y", d => chartHeight - yScale(d.metric[0]))
-    //   .attr("width", xScale.bandwidth())
-    //   .attr("height", d => yScale(d.metric[0]));
-
-    // add text
-    // const text = svg
-    //   .append("g")
-    //   .selectAll("text")
-    //   .data(message.tables.DEFAULT)
-    //   .enter()
-    //   .append("text")
-    //   .attr(
-    //     "x",
-    //     d => xScale(d.dimension[0]) + xScale.bandwidth() / 2 + margin.left
-    //   )
-    //   .attr("y", height - margin.bottom / 4)
-    //   .attr("text-anchor", "middle")
-    //   .text(d => d.dimension[0]);
 };
 
 // renders locally

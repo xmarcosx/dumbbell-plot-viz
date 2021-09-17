@@ -8,17 +8,29 @@ export const message = {
   tables: {
     DEFAULT: [
       {
-        "dimension": [ "Mariana" ],
-        "metric": [ 200, 250 ]
+        "dimension": [ "Mariana", "Fall" ],
+        "metric": [ 200 ]
       },
       {
-        "dimension": [ "Arelys" ],
-        "metric": [ 100, 125 ]
+        "dimension": [ "Mariana", "Spring" ],
+        "metric": [ 214 ]
       },
       {
-        "dimension": [ "Marcos" ],
-        "metric": [ 175, 214 ]
-      }
+        "dimension": [ "Marcos", "Fall" ],
+        "metric": [ 175 ]
+      },
+      {
+        "dimension": [ "Marcos", "Spring" ],
+        "metric": [ 190 ]
+      },
+      {
+        "dimension": [ "Arelys", "Fall" ],
+        "metric": [ 182 ]
+      },
+      {
+        "dimension": [ "Arelys", "Spring" ],
+        "metric": [ 190 ]
+      },
     ],
   },
   fields: {
